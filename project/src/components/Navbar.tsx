@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Dumbbell } from 'lucide-react';
+import { Menu, X, Dumbbell, Lock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -38,13 +38,24 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-yellow-500 focus:outline-none"
+          
+          <div className="flex items-center gap-4">
+            <Link
+              to="/admin"
+              className="hidden md:flex items-center px-3 py-2 text-sm text-gray-400 hover:text-yellow-500 transition-colors"
+              title="Área Administrativa"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+              <Lock className="h-4 w-4" />
+            </Link>
+            
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-yellow-500 focus:outline-none"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -63,6 +74,16 @@ const Navbar = () => {
                 {item.title}
               </Link>
             ))}
+            <Link
+              to="/admin"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-yellow-500"
+              onClick={() => setIsOpen(false)}
+            >
+              <div className="flex items-center gap-2">
+                <Lock className="h-4 w-4" />
+                Área Administrativa
+              </div>
+            </Link>
           </div>
         </div>
       )}
