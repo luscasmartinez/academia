@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Login from './components/Admin/Login';
 import Dashboard from './components/Admin/Dashboard';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
@@ -58,6 +58,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
