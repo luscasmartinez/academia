@@ -1,12 +1,13 @@
 import React from 'react';
-import { 
-  LineChart, 
-  Target, 
-  Dumbbell, 
-  ClipboardList, 
+import {
+  LineChart,
+  Target,
+  Dumbbell,
+  ClipboardList,
   TrendingUp,
   ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -26,7 +27,7 @@ const Services = () => {
       icon: <Dumbbell className="w-12 h-12" />,
       title: "Treinamento Individual",
       description: "Planos de treino organizados de forma individual e administrados por profissionais de educação física qualificados.",
-      color: "from-yellow-500 to-orange-500"
+      color: "from-red-500 to-orange-500"
     },
     {
       icon: <TrendingUp className="w-12 h-12" />,
@@ -49,7 +50,7 @@ const Services = () => {
     <section id="servicos" className="py-20 bg-black text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] opacity-10 bg-cover bg-fixed" />
-      
+
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-bold mb-6">Nossos Serviços</h2>
@@ -86,21 +87,20 @@ const Services = () => {
           <h3 className="text-3xl font-bold text-center mb-12">Processo de Treinamento</h3>
           <div className="relative">
             {/* Linha central */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-500/30" />
-            
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-500/30" />
+
             {steps.map((step, index) => (
-              <div key={index} className={`flex items-center mb-8 ${
-                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-              }`}>
+              <div key={index} className={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                }`}>
                 <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                   <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl inline-block
                                 transform transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                    <span className="text-yellow-500 font-bold text-lg">Etapa {index + 1}</span>
+                    <span className="text-red-500 font-bold text-lg">Etapa {index + 1}</span>
                     <p className="text-xl font-semibold">{step}</p>
                   </div>
                 </div>
                 <div className="relative z-10">
-                  <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                     <ClipboardList className="w-4 h-4 text-black" />
                   </div>
                 </div>
@@ -112,16 +112,16 @@ const Services = () => {
 
         {/* CTA */}
         <div className="text-center mt-20">
-          <button
-            onClick={() => window.location.href = '/planos'}
-            className="inline-flex items-center bg-gradient-to-r from-yellow-500 to-yellow-600 
-                     text-black px-8 py-4 rounded-full font-bold text-lg
-                     hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300
-                     transform hover:scale-105 hover:shadow-lg"
+          <Link
+            to="/planos"
+            className="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 
+                 text-black px-8 py-4 rounded-full font-bold text-lg
+                 hover:from-red-400 hover:to-red-500 transition-all duration-300
+                 transform hover:scale-105 hover:shadow-lg"
           >
             Comece Sua Jornada
             <ArrowRight className="ml-2 w-6 h-6" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

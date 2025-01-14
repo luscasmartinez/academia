@@ -105,7 +105,7 @@ const Registration = () => {
       
       <div className="max-w-2xl mx-auto px-4 relative">
         <div className="text-center mb-12">
-          <Dumbbell className="h-12 w-12 text-yellow-500 mx-auto mb-4 animate-bounce" />
+          <Dumbbell className="h-12 w-12 text-red-500 mx-auto mb-4 animate-bounce" />
           <h2 className="text-4xl font-bold mb-4">Finalize Sua Matrícula</h2>
           <p className="text-gray-300">Preencha seus dados para começar sua jornada fitness</p>
         </div>
@@ -123,7 +123,7 @@ const Registration = () => {
               <input
                 type="text"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-red-500 focus:ring-2 focus:ring-red-500 transition-all"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -134,7 +134,7 @@ const Registration = () => {
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-red-500 focus:ring-2 focus:ring-red-500 transition-all"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
@@ -145,7 +145,7 @@ const Registration = () => {
               <input
                 type="tel"
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-red-500 focus:ring-2 focus:ring-red-500 transition-all"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               />
@@ -153,12 +153,12 @@ const Registration = () => {
 
             <div className="bg-white/5 p-4 rounded-xl">
               <p className="text-sm text-gray-300">Plano selecionado:</p>
-              <p className="text-lg font-semibold text-yellow-500">{formData.plan}</p>
+              <p className="text-lg font-semibold text-red-500">{formData.plan}</p>
             </div>
 
             {isExperimentalClass && (
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-yellow-500">
+                <div className="flex items-center gap-2 text-red-500">
                   <Calendar className="w-5 h-5" />
                   <h3 className="font-semibold">Agende sua Aula Experimental</h3>
                 </div>
@@ -170,7 +170,7 @@ const Registration = () => {
                     required
                     min={formatDate(today)}
                     max={formatDate(maxDate)}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 transition-all [color-scheme:dark]"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-red-500 focus:ring-2 focus:ring-red-500 transition-all [color-scheme:dark]"
                     value={formData.preferredDate}
                     onChange={handleDateChange}
                   />
@@ -182,7 +182,7 @@ const Registration = () => {
                     <label className="block text-sm font-medium mb-2">Horário Preferido</label>
                     <select
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-red-500 focus:ring-2 focus:ring-red-500 transition-all"
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
                     >
@@ -201,7 +201,7 @@ const Registration = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-yellow-500 text-black py-4 px-6 rounded-xl font-semibold hover:bg-yellow-400 transition-all duration-300 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-red-500 text-black py-4 px-6 rounded-xl font-semibold hover:bg-red-400 transition-all duration-300 flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

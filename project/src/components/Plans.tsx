@@ -19,7 +19,7 @@ const Plans = () => {
         'Conheça nossa estrutura'
       ],
       highlight: true,
-      icon: <Gift className="h-8 w-8 text-yellow-500" />,
+      icon: <Gift className="h-8 w-8 text-red-500" />,
       special: true
     },
     {
@@ -64,11 +64,11 @@ const Plans = () => {
             <div
               key={plan.name}
               className={`relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-2 ${
-                plan.special ? 'border-2 border-yellow-500' : ''
+                plan.special ? 'border-2 border-red-500' : ''
               }`}
             >
               {plan.special && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-black px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-500 text-black px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
                   <Gift className="h-4 w-4" />
                   Experimental
                 </div>
@@ -76,14 +76,14 @@ const Plans = () => {
               
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">{plan.name}</h3>
-                <p className={`text-3xl font-bold ${plan.special ? 'text-yellow-500' : 'text-yellow-500'}`}>
+                <p className={`text-3xl font-bold ${plan.special ? 'text-red-500' : 'text-red-500'}`}>
                   {plan.price}
                 </p>
                 
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-yellow-500 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-red-500 mr-3 flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -93,8 +93,8 @@ const Plans = () => {
                   onClick={() => handleMatricula(plan.name)}
                   className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center group
                     ${plan.special 
-                      ? 'bg-yellow-500 text-black hover:bg-yellow-400' 
-                      : 'bg-white/10 hover:bg-yellow-500 hover:text-black'}`}
+                      ? 'bg-red-500 text-black hover:bg-red-400' 
+                      : 'bg-white/10 hover:bg-red-500 hover:text-black'}`}
                 >
                   <span>{plan.special ? 'Agendar Aula Grátis' : 'Matricule-se Agora'}</span>
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

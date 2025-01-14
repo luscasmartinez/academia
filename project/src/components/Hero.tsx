@@ -25,7 +25,7 @@ const Hero = () => {
           </p>
           <button
             onClick={() => navigate('/planos')}
-            className="inline-flex items-center bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors"
+            className="inline-flex items-center bg-red-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-red-400 transition-colors"
           >
             Começar agora
             <ArrowRight className="ml-2 h-5 w-5" />

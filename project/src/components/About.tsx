@@ -4,17 +4,17 @@ import { Target, Heart, Users } from 'lucide-react';
 const About = () => {
   const values = [
     {
-      icon: <Target className="h-8 w-8 text-yellow-500" />,
+      icon: <Target className="h-8 w-8 text-red-500" />,
       title: 'Missão',
       description: 'Inspirar e capacitar pessoas a alcançarem seus objetivos fitness através de treinamento de qualidade e suporte personalizado.',
     },
     {
-      icon: <Heart className="h-8 w-8 text-yellow-500" />,
+      icon: <Heart className="h-8 w-8 text-red-500" />,
       title: 'Visão',
       description: 'Ser reconhecida como a academia líder em transformação de vidas, oferecendo a melhor experiência fitness da região.',
     },
     {
-      icon: <Users className="h-8 w-8 text-yellow-500" />,
+      icon: <Users className="h-8 w-8 text-red-500" />,
       title: 'Valores',
       description: 'Comprometimento, excelência, inovação e respeito às individualidades de cada aluno.',
     },

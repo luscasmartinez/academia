@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Dumbbell, Lock } from 'lucide-react';
+import { Menu, X, Lock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -20,7 +20,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <Dumbbell className="h-8 w-8 text-yellow-500" />
+              <img 
+                src="/src/logocorpuss.png" 
+                alt="Corpus Gym Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
@@ -28,8 +32,8 @@ const Navbar = () => {
                   <Link
                     key={item.title}
                     to={item.href}
-                    className={`hover:bg-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      location.pathname === item.href ? 'bg-yellow-500' : ''
+                    className={`hover:bg-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      location.pathname === item.href ? 'bg-red-500' : ''
                     }`}
                   >
                     {item.title}
@@ -42,7 +46,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <Link
               to="/admin"
-              className="hidden md:flex items-center px-3 py-2 text-sm text-gray-400 hover:text-yellow-500 transition-colors"
+              className="hidden md:flex items-center px-3 py-2 text-sm text-gray-400 hover:text-red-500 transition-colors"
               title="Área Administrativa"
             >
               <Lock className="h-4 w-4" />
@@ -51,7 +55,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-yellow-500 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-red-500 focus:outline-none"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -66,8 +70,8 @@ const Navbar = () => {
               <Link
                 key={item.title}
                 to={item.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-yellow-500 ${
-                  location.pathname === item.href ? 'bg-yellow-500' : ''
+                className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-red-500 ${
+                  location.pathname === item.href ? 'bg-red-500' : ''
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -76,7 +80,7 @@ const Navbar = () => {
             ))}
             <Link
               to="/admin"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-yellow-500"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-red-500"
               onClick={() => setIsOpen(false)}
             >
               <div className="flex items-center gap-2">
