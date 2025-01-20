@@ -7,6 +7,7 @@ import {
   TrendingUp,
   ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -136,16 +137,16 @@ const Services = () => {
 
         {/* CTA */}
         <div className="text-center mt-20">
-          <button
-            onClick={() => window.location.href = '/planos'}
+          <Link
+            to="/planos"
             className="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 
-                     text-black px-8 py-4 rounded-full font-bold text-lg
-                     hover:from-red-400 hover:to-red-500 transition-all duration-300
-                     transform hover:scale-105 hover:shadow-lg"
+                 text-black px-8 py-4 rounded-full font-bold text-lg
+                 hover:from-red-400 hover:to-red-500 transition-all duration-300
+                 transform hover:scale-105 hover:shadow-lg"
           >
             Comece Sua Jornada
             <ArrowRight className="ml-2 w-6 h-6" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
