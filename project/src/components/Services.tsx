@@ -1,13 +1,12 @@
 import React from 'react';
-import {
-  LineChart,
-  Target,
-  Dumbbell,
-  ClipboardList,
+import { 
+  LineChart, 
+  Target, 
+  Dumbbell, 
+  ClipboardList, 
   TrendingUp,
   ArrowRight
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -50,7 +49,7 @@ const Services = () => {
     <section id="servicos" className="py-20 bg-black text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] opacity-10 bg-cover bg-fixed" />
-
+      
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-bold mb-6">Nossos Serviços</h2>
@@ -82,16 +81,19 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Timeline do Processo */}
+        {/* Timeline do Processo - Versão Mobile e Desktop */}
         <div className="max-w-4xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-12">Processo de Treinamento</h3>
-          <div className="relative">
+          
+          {/* Timeline para Desktop */}
+          <div className="hidden md:block relative">
             {/* Linha central */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-red-500/30" />
-
+            
             {steps.map((step, index) => (
-              <div key={index} className={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                }`}>
+              <div key={index} className={`flex items-center mb-8 ${
+                index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+              }`}>
                 <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                   <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl inline-block
                                 transform transition-all duration-300 hover:scale-105 hover:bg-white/20">
@@ -108,20 +110,42 @@ const Services = () => {
               </div>
             ))}
           </div>
+
+          {/* Timeline para Mobile */}
+          <div className="md:hidden relative">
+            {/* Linha vertical */}
+            <div className="absolute left-4 top-0 bottom-0 w-1 bg-red-500/30" />
+            
+            {steps.map((step, index) => (
+              <div key={index} className="ml-12 mb-8 relative">
+                {/* Círculo na linha do tempo */}
+                <div className="absolute -left-8 top-4 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                  <ClipboardList className="w-4 h-4 text-black" />
+                </div>
+                
+                {/* Conteúdo */}
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl
+                              transform transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                  <span className="text-red-500 font-bold text-lg block mb-2">Etapa {index + 1}</span>
+                  <p className="text-lg font-semibold">{step}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
         <div className="text-center mt-20">
-          <Link
-            to="/planos"
+          <button
+            onClick={() => window.location.href = '/planos'}
             className="inline-flex items-center bg-gradient-to-r from-red-500 to-red-600 
-                 text-black px-8 py-4 rounded-full font-bold text-lg
-                 hover:from-red-400 hover:to-red-500 transition-all duration-300
-                 transform hover:scale-105 hover:shadow-lg"
+                     text-black px-8 py-4 rounded-full font-bold text-lg
+                     hover:from-red-400 hover:to-red-500 transition-all duration-300
+                     transform hover:scale-105 hover:shadow-lg"
           >
             Comece Sua Jornada
             <ArrowRight className="ml-2 w-6 h-6" />
-          </Link>
+          </button>
         </div>
       </div>
     </section>
