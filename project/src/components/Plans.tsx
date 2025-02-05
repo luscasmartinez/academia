@@ -19,54 +19,7 @@ const Plans = () => {
         'Acesso limitado (2x/semana)',
         'Ideal para iniciantes'
       ],
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
-    },
-    {
-      name: 'Musculação | Mensal',
-      price: 'R$ 159,00/mês',
-      features: [
-        'Acesso LIVRE à academia',
-        'Taxa de adesão R$49,90',
-        'Duração  1 mês',
-        'Pagamento À vista',
-      ],
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
-    },
-    {
-      name: 'Musculação | Semestral',
-      price: 'R$ 139,00/mês',
-      features: [
-        'Acesso LIVRE à academia',
-        'Duração 6 meses',
-        'SEM taxa de adesão',
-        'Taxa de cancelamento de 10%',
-        'Não ocupa limite do cartão',
-      ],
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
-    },
-    {
-      name: 'Musculação | Semestral',
-      price: 'R$ 129,00/mês',
-      features: [
-        'Acesso LIVRE à academia',
-        'Duração 6 meses',
-        'Taxa de adesão R$49,90',
-        'Taxa de cancelamento de 10%',
-        'Usa o limite do cartão',
-      ],
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
-    },
-    {
-      name: 'Musculação | Anual',
-      price: 'R$ 119,00/mês',
-      features: [
-        'Acesso LIVRE à academia',
-        'Duração 12 meses',
-        'Taxa de adesão R$49,90',
-        'Taxa de cancelamento de 10%',
-        'Não ocupa o limite do cartão',
-      ],
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
     },
     {
       name: 'Musculação | Anual',
@@ -81,8 +34,62 @@ const Plans = () => {
       highlight: true,
       icon: <Gift className="h-8 w-8 text-red-500" />,
       special: true,
-      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/pagamento'
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
     },
+
+    {
+      name: 'Musculação | Semestral',
+      price: 'R$ 129,00/mês',
+      features: [
+        'Acesso LIVRE à academia',
+        'Duração 6 meses',
+        'Taxa de adesão R$49,90',
+        'Taxa de cancelamento de 10%',
+        'Usa o limite do cartão',
+      ],
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
+    },
+
+    {
+      name: 'Musculação | Mensal',
+      price: 'R$ 159,00/mês',
+      features: [
+        'Acesso LIVRE à academia',
+        'Taxa de adesão R$49,90',
+        'Duração  1 mês',
+        'Pagamento À vista',
+      ],
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
+    },
+
+    {
+      name: 'Musculação | Anual',
+      price: 'R$ 119,00/mês',
+      features: [
+        'Acesso LIVRE à academia',
+        'Duração 12 meses',
+        'Taxa de adesão R$49,90',
+        'Taxa de cancelamento de 10%',
+        'Não ocupa o limite do cartão',
+      ],
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
+    },
+    
+    {
+      name: 'Musculação | Semestral',
+      price: 'R$ 139,00/mês',
+      features: [
+        'Acesso LIVRE à academia',
+        'Duração 6 meses',
+        'SEM taxa de adesão',
+        'Taxa de cancelamento de 10%',
+        'Não ocupa limite do cartão',
+      ],
+      link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
+    },
+    
+    
+    
   ];
 
   const handleMatricula = (link: string) => {
