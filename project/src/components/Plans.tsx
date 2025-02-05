@@ -99,8 +99,7 @@ const Plans = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-black to-gray-900 text-white py-32">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] opacity-10 bg-cover bg-fixed bg-center" />
-
+       <div className="fixed inset-0 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] opacity-10 bg-cover bg-fixed bg-center" />
       <div className="max-w-7xl mx-auto px-4 relative">
         {registrationSuccess && (
           <div className="max-w-2xl mx-auto mb-8 bg-green-500/10 border border-green-500 text-green-500 px-6 py-4 rounded-xl text-center">
@@ -113,7 +112,8 @@ const Plans = () => {
           <p className="text-xl text-gray-300">Escolha o plano perfeito para sua jornada fitness</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
           {plans.map((plan, index) => (
             <div
               key={plan.name}
