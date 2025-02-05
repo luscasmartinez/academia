@@ -11,7 +11,7 @@ const Plans = () => {
   const plans = [
     {
       name: 'Musculação | Start ',
-      price: 'R$ 79,90/mês',
+      price: 'R$ 49,00/mês',
       features: [
         'Taxa de adesão R$49,90',
         'Duração  1 mês',
@@ -74,7 +74,7 @@ const Plans = () => {
       ],
       link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
     },
-    
+
     {
       name: 'Musculação | Semestral',
       price: 'R$ 139,00/mês',
