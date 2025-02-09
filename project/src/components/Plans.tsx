@@ -70,7 +70,7 @@ const Plans = () => {
         'Duração 12 meses',
         'Taxa de adesão R$49,90',
         'Taxa de cancelamento de 10%',
-        'Não ocupa o limite do cartão',
+        'NÃO ocupa o limite do cartão',
       ],
       link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
     },
@@ -83,7 +83,7 @@ const Plans = () => {
         'Duração 6 meses',
         'SEM taxa de adesão',
         'Taxa de cancelamento de 10%',
-        'Não ocupa limite do cartão',
+        'NÃO ocupa limite do cartão',
       ],
       link: 'https://venda.nextfit.com.br/b28c4843-eee5-482b-af00-7da26a2826a3/contratos'
     },
