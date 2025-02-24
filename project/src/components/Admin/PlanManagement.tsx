@@ -232,16 +232,7 @@ const PlanManagement = () => {
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={editingPlan.highlight}
-                    onChange={(e) => setEditingPlan({ ...editingPlan, highlight: e.target.checked })}
-                    className="rounded border-white/10 text-red-500 focus:ring-red-500"
-                  />
-                  Destacar plano
-                </label>
-                
+                               
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
