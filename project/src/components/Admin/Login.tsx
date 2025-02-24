@@ -30,7 +30,7 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-br from-black to-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Dumbbell className="mx-auto h-12 w-12 text-yellow-500" />
+          <Dumbbell className="mx-auto h-12 w-12 text-red-500" />
           <h2 className="mt-6 text-3xl font-bold text-white">
             Área Administrativa
           </h2>
@@ -53,7 +53,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-xl relative block w-full px-4 py-3 bg-white/5 border border-white/10 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                className="appearance-none rounded-xl relative block w-full px-4 py-3 bg-white/5 border border-white/10 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -68,7 +68,7 @@ const Login = () => {
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-xl relative block w-full px-4 py-3 bg-white/5 border border-white/10 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                className="appearance-none rounded-xl relative block w-full px-4 py-3 bg-white/5 border border-white/10 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 placeholder="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -79,7 +79,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-sm font-medium text-black bg-yellow-500 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-sm font-medium text-black bg-red-500 hover:bg-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>

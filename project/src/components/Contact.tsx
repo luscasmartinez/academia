@@ -28,7 +28,7 @@ const Contact = () => {
                     href="https://wa.me/5555999202924" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-xl text-white-500 hover:text-white-400 transition-colors flex items-center"
+                    className="text-xl text-yellow-500 hover:text-yellow-400 transition-colors flex items-center"
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     (55) 99920-2924
@@ -48,15 +48,15 @@ const Contact = () => {
                   <ul className="space-y-3">
                     <li className="flex justify-between">
                       <span>Segunda a Sexta:</span>
-                      <span className="text-white-500">06:00 às 22:00</span>
+                      <span className="text-yellow-500">06:00 às 22:00</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Sábado:</span>
-                      <span className="text-white-500">10:00 às 16:00</span>
+                      <span className="text-yellow-500">10:00 às 16:00</span>
                     </li>
                     <li className="flex justify-between">
                       <span>Domingo:</span>
-                      <span className="text-white-500">Fechado</span>
+                      <span className="text-red-500">Fechado</span>
                     </li>
                   </ul>
                 </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                     href="https://www.google.com/maps?q=-29.781936094213236,-55.78692499861296" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 bg-red-500 text-black px-6 py-3 rounded-xl font-semibold hover:bg-white-400 transition-colors"
+                    className="inline-block mt-4 bg-yellow-500 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-400 transition-colors"
                   >
                     Como Chegar
                   </a>

@@ -112,8 +112,9 @@ const Registration = () => {
 
         {submitError && (
           <div className="bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded-xl mb-6">
-            {submitError}
-          </div>
+  {submitError}
+</div>
+
         )}
 
         <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-xl">
