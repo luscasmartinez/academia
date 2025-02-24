@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="logocorpuss.png" 
+                src="https://i.imgur.com/z1OEbzR.jpg" 
                 alt="Corpus Gym Logo" 
                 className="h-12 w-auto"
               />
