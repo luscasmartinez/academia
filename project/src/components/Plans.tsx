@@ -48,11 +48,12 @@ const Plans = () => {
           <p className="text-xl text-gray-300">Escolha o plano perfeito para sua jornada fitness</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Updated grid with better centering */}
+        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className="relative group"
+              className="relative group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md"
             >
               {/* Animated background glow effect */}
               <div 
@@ -60,7 +61,7 @@ const Plans = () => {
               />
               
               <div 
-                className={`relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-white/20
+                className={`relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-white/20 h-full
                   ${plan.special ? 'border-2 border-red-500' : ''}`}
               >
                 {plan.special && (
@@ -70,7 +71,7 @@ const Plans = () => {
                   </div>
                 )}
                 
-                <div className="space-y-6">
+                <div className="space-y-6 flex flex-col h-full">
                   <h3 className="text-2xl font-bold">
                     {plan.name}
                   </h3>
@@ -78,7 +79,7 @@ const Plans = () => {
                     {plan.price}
                   </p>
                   
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 flex-grow">
                     {plan.features.map((feature, index) => (
                       <li 
                         key={index} 
@@ -93,7 +94,7 @@ const Plans = () => {
 
                   <button
                     onClick={handleMatricula}
-                    className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-500 flex items-center justify-center group
+                    className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-500 flex items-center justify-center group mt-auto
                       ${plan.special 
                         ? 'bg-red-500 text-black hover:bg-red-400' 
                         : 'bg-white/10 hover:bg-red-500 hover:text-black'}`}
