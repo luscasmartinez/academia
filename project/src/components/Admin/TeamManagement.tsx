@@ -111,12 +111,12 @@ const TeamManagement = () => {
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 mt-8">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 mt-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
         <h2 className="text-xl font-semibold">Gerenciar Equipe</h2>
         <button
           onClick={startNewMember}
-          className="flex items-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 transition-colors"
+          className="flex items-center justify-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 transition-colors w-full sm:w-auto"
           disabled={isAdding || editingMember !== null}
         >
           <Plus className="h-5 w-5 mr-2" />
@@ -139,7 +139,7 @@ const TeamManagement = () => {
         <div className="space-y-4">
           {/* Form de edição/adição */}
           {editingMember && (
-            <form onSubmit={isAdding ? handleAddMember : handleUpdateMember} className="bg-white/5 p-6 rounded-xl mb-6">
+            <form onSubmit={isAdding ? handleAddMember : handleUpdateMember} className="bg-white/5 p-4 sm:p-6 rounded-xl mb-6">
               <h3 className="text-lg font-semibold mb-4">
                 {isAdding ? 'Novo Membro' : 'Editar Membro'}
               </h3>
@@ -181,20 +181,20 @@ const TeamManagement = () => {
                 <p className="text-sm text-gray-400 mt-1">Use uma URL de imagem do Unsplash ou similar</p>
               </div>
 
-              <div className="flex justify-end gap-2">
+              <div className="flex flex-col sm:flex-row justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => {
                     setEditingMember(null);
                     setIsAdding(false);
                   }}
-                  className="px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5"
+                  className="px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5 w-full sm:w-auto"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400"
+                  className="flex items-center justify-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 w-full sm:w-auto"
                 >
                   <Save className="h-5 w-5 mr-2" />
                   {isAdding ? 'Criar Membro' : 'Salvar Alterações'}
@@ -203,76 +203,144 @@ const TeamManagement = () => {
             </form>
           )}
 
-          {/* Lista de membros */}
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="text-left border-b border-white/10">
-                  <th className="pb-3 px-4">Ordem</th>
-                  <th className="pb-3 px-4">Foto</th>
-                  <th className="pb-3 px-4">Nome</th>
-                  <th className="pb-3 px-4">Cargo</th>
-                  <th className="pb-3 px-4">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                {team.map((member, index) => (
-                  <tr key={member.id} className="border-b border-white/5 hover:bg-white/5">
-                    <td className="py-4 px-4">
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => handleMoveOrder(member, 'up')}
-                          disabled={index === 0}
-                          className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
-                        >
-                          <MoveUp className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => handleMoveOrder(member, 'down')}
-                          disabled={index === team.length - 1}
-                          className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
-                        >
-                          <MoveDown className="h-4 w-4" />
-                        </button>
+          {/* Lista de membros - Versão para desktop */}
+          <div className="hidden md:block overflow-x-auto">
+            <div className="inline-block min-w-full align-middle">
+              <div className="overflow-hidden shadow-md rounded-lg">
+                <table className="min-w-full divide-y divide-white/10">
+                  <thead className="bg-white/5">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ordem</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Foto</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Nome</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Cargo</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/5 divide-y divide-white/10">
+                    {team.map((member, index) => (
+                      <tr key={member.id} className="hover:bg-white/10">
+                        <td className="px-4 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => handleMoveOrder(member, 'up')}
+                              disabled={index === 0}
+                              className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                            >
+                              <MoveUp className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => handleMoveOrder(member, 'down')}
+                              disabled={index === team.length - 1}
+                              className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                            >
+                              <MoveDown className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-12 h-12 rounded-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                              <ImageIcon className="w-6 h-6 text-gray-400" />
+                            </div>
+                          )}
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap">{member.name}</td>
+                        <td className="px-4 py-4 whitespace-nowrap">{member.role}</td>
+                        <td className="px-4 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setEditingMember(member)}
+                              className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg"
+                              disabled={editingMember !== null}
+                              title="Editar"
+                            >
+                              <Edit2 className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => member.id && handleDeleteMember(member.id)}
+                              className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg"
+                              disabled={editingMember !== null}
+                              title="Excluir"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Lista de membros - Versão para mobile */}
+          <div className="md:hidden space-y-4">
+            {team.map((member, index) => (
+              <div key={member.id} className="bg-white/5 rounded-lg p-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-3">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <ImageIcon className="w-6 h-6 text-gray-400" />
                       </div>
-                    </td>
-                    <td className="py-4 px-4">
-                      {member.image ? (
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-12 h-12 rounded-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                          <ImageIcon className="w-6 h-6 text-gray-400" />
-                        </div>
-                      )}
-                    </td>
-                    <td className="py-4 px-4">{member.name}</td>
-                    <td className="py-4 px-4">{member.role}</td>
-                    <td className="py-4 px-4">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => setEditingMember(member)}
-                          className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg"
-                          disabled={editingMember !== null}
-                        >
-                          <Edit2 className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => member.id && handleDeleteMember(member.id)}
-                          className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg"
-                          disabled={editingMember !== null}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    )}
+                    <div>
+                      <h3 className="font-medium">{member.name}</h3>
+                      <p className="text-sm text-gray-400">{member.role}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => setEditingMember(member)}
+                      className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg"
+                      disabled={editingMember !== null}
+                    >
+                      <Edit2 className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => member.id && handleDeleteMember(member.id)}
+                      className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg"
+                      disabled={editingMember !== null}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-3 pt-3 border-t border-white/10 flex justify-between">
+                  <div className="text-xs text-gray-400">Ordem: {member.order + 1}</div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => handleMoveOrder(member, 'up')}
+                      disabled={index === 0}
+                      className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                    >
+                      <MoveUp className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => handleMoveOrder(member, 'down')}
+                      disabled={index === team.length - 1}
+                      className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                    >
+                      <MoveDown className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

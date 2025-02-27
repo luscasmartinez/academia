@@ -144,12 +144,12 @@ const PlanManagement = () => {
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 mt-8">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-4 sm:p-6 mt-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
         <h2 className="text-xl font-semibold">Gerenciar Planos</h2>
         <button
           onClick={startNewPlan}
-          className="flex items-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 transition-colors"
+          className="flex items-center justify-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 transition-colors w-full sm:w-auto"
           disabled={isAdding || editingPlan !== null}
         >
           <Plus className="h-5 w-5 mr-2" />
@@ -172,7 +172,7 @@ const PlanManagement = () => {
         <div className="space-y-4">
           {/* Form de edição/adição */}
           {editingPlan && (
-            <form onSubmit={isAdding ? handleAddPlan : handleUpdatePlan} className="bg-white/5 p-6 rounded-xl mb-6">
+            <form onSubmit={isAdding ? handleAddPlan : handleUpdatePlan} className="bg-white/5 p-4 sm:p-6 rounded-xl mb-6">
               <h3 className="text-lg font-semibold mb-4">
                 {isAdding ? 'Novo Plano' : 'Editar Plano'}
               </h3>
@@ -231,8 +231,17 @@ const PlanManagement = () => {
                 </button>
               </div>
 
-              <div className="flex items-center gap-4 mb-6">
-                               
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={editingPlan.highlight}
+                    onChange={(e) => setEditingPlan({ ...editingPlan, highlight: e.target.checked })}
+                    className="rounded border-white/10 text-red-500 focus:ring-red-500"
+                  />
+                  Destacar plano
+                </label>
+                
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
@@ -244,20 +253,20 @@ const PlanManagement = () => {
                 </label>
               </div>
 
-              <div className="flex justify-end gap-2">
+              <div className="flex flex-col sm:flex-row justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => {
                     setEditingPlan(null);
                     setIsAdding(false);
                   }}
-                  className="px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5"
+                  className="px-4 py-2 rounded-lg border border-white/10 hover:bg-white/5 w-full sm:w-auto"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400"
+                  className="flex items-center justify-center px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-400 w-full sm:w-auto"
                 >
                   <Save className="h-5 w-5 mr-2" />
                   {isAdding ? 'Criar Plano' : 'Salvar Alterações'}
@@ -268,85 +277,94 @@ const PlanManagement = () => {
 
           {/* Lista de planos */}
           <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="text-left border-b border-white/10">
-                  <th className="pb-3 px-4">Ordem</th>
-                  <th className="pb-3 px-4">Nome</th>
-                  <th className="pb-3 px-4">Preço</th>
-                  <th className="pb-3 px-4">Características</th>
-                  <th className="pb-3 px-4">Status</th>
-                  <th className="pb-3 px-4">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                {plans.map((plan, index) => (
-                  <tr key={plan.id} className="border-b border-white/5 hover:bg-white/5">
-                    <td className="py-4 px-4">
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => handleMoveOrder(plan, 'up')}
-                          disabled={index === 0}
-                          className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
-                        >
-                          <MoveUp className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => handleMoveOrder(plan, 'down')}
-                          disabled={index === plans.length - 1}
-                          className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
-                        >
-                          <MoveDown className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </td>
-                    <td className="py-4 px-4">{plan.name}</td>
-                    <td className="py-4 px-4">{plan.price}</td>
-                    <td className="py-4 px-4">
-                      <ul className="list-disc list-inside">
-                        {plan.features.map((feature, i) => (
-                          <li key={i} className="text-sm text-gray-300">{feature}</li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td className="py-4 px-4">
-                      <div className="flex gap-2">
-                        {plan.highlight && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-red-500/10 text-red-500">
-                            <Star className="h-3 w-3 mr-1" />
-                            Destacado
-                          </span>
-                        )}
-                        {plan.special && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-purple-500/10 text-purple-500">
-                            <Gift className="h-3 w-3 mr-1" />
-                            Recomendado
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="py-4 px-4">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => setEditingPlan(plan)}
-                          className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg"
-                          disabled={editingPlan !== null}
-                        >
-                          <Edit2 className="h-4 w-4" />
-                        </button>
-                        <button
-                          onClick={() => plan.id && handleDeletePlan(plan.id)}
-                          className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg"
-                          disabled={editingPlan !== null}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="inline-block min-w-full align-middle">
+              <div className="overflow-hidden shadow-md rounded-lg">
+                <table className="min-w-full divide-y divide-white/10">
+                  <thead className="bg-white/5">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ordem</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Nome</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Preço</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider hidden md:table-cell">Características</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider hidden sm:table-cell">Status</th>
+                      <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white/5 divide-y divide-white/10">
+                    {plans.map((plan, index) => (
+                      <tr key={plan.id} className="hover:bg-white/10">
+                        <td className="px-4 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => handleMoveOrder(plan, 'up')}
+                              disabled={index === 0}
+                              className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                            >
+                              <MoveUp className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => handleMoveOrder(plan, 'down')}
+                              disabled={index === plans.length - 1}
+                              className="p-1 hover:bg-white/10 rounded disabled:opacity-50"
+                            >
+                              <MoveDown className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap">{plan.name}</td>
+                        <td className="px-4 py-4 whitespace-nowrap">{plan.price}</td>
+                        <td className="px-4 py-4 hidden md:table-cell">
+                          <ul className="list-disc list-inside">
+                            {plan.features.slice(0, 2).map((feature, i) => (
+                              <li key={i} className="text-sm text-gray-300 truncate max-w-xs">{feature}</li>
+                            ))}
+                            {plan.features.length > 2 && (
+                              <li className="text-sm text-gray-400">+{plan.features.length - 2} mais</li>
+                            )}
+                          </ul>
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap hidden sm:table-cell">
+                          <div className="flex flex-wrap gap-2">
+                            {plan.highlight && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-red-500/10 text-red-500">
+                                <Star className="h-3 w-3 mr-1" />
+                                Destacado
+                              </span>
+                            )}
+                            {plan.special && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-purple-500/10 text-purple-500">
+                                <Gift className="h-3 w-3 mr-1" />
+                                Recomendado
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-4 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setEditingPlan(plan)}
+                              className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg"
+                              disabled={editingPlan !== null}
+                              title="Editar"
+                            >
+                              <Edit2 className="h-4 w-4" />
+                            </button>
+                            <button
+                              onClick={() => plan.id && handleDeletePlan(plan.id)}
+                              className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg"
+                              disabled={editingPlan !== null}
+                              title="Excluir"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       )}
